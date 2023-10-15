@@ -1,0 +1,195 @@
+:root{
+  --contrast: #d3a860ff;
+  --background: #121214ff;
+}
+*{
+  text-decoration: none;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+}
+
+/*Generical*/
+a:hover{
+  text-decoration: underline !important;
+}
+
+button{
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  background-color: var(--contrast);
+  color: var(--background);
+  border-radius: .5rem;
+}
+.app{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+  text-align: center;
+  color: white;
+}
+.divider{
+  position: absolute;
+  border: 1px solid var(--contrast);
+  width: 50vw;
+  z-index: 0;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.bold{
+  font-weight: bold;
+}
+.block{
+  display: block ;
+}
+.none{
+  display: none;
+}
+
+/*Nav*/
+.logo{
+  width: 60px;
+}
+.logoContainer{
+  height: 60px;
+  justify-content: space-around;
+}
+.linkContainer{
+  height: 70vh;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/*Container*/
+.container{
+  position: relative;
+  margin: auto;
+}
+.menuContainer{
+  position: relative;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background);
+  flex-direction: column;
+  z-index: 1;
+  transition: transform 1s;
+}
+.btnMenu{
+  width: 30px;
+}
+.btnMenu::after, .btnMenu::before{
+  position: absolute;
+  background-color: var(--contrast);
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-radius: .5rem;
+}
+.btnMenu::after{
+  margin-top: -16px;
+}
+.btnMenu::before{
+  margin-top: 6px;
+}
+
+/*Responsivity for Desktops*/
+@media (min-width:600px) and (orientation: landscape){
+  .btnMenu{
+    display: none;
+  }
+  .menuContainer{
+    height: 100px;
+    z-index: 0 !important;
+    justify-content: space-around;
+  }
+  .linkContainer{
+    flex-direction: row;
+    width: 600px;
+    justify-content: space-between;
+  }
+  .navBar > .none{
+    display: block;
+  }
+}
+
+/*Carrousel*/
+
+  /*Slides*/
+  .sliderContainer{
+    position: relative;
+    margin: auto;
+  }
+  .slide{
+    position: relative;
+  }
+  .prev, .next{
+    position: absolute;
+    top: 35%;
+    width: 90px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index: 0;
+  }
+  .prev{
+    left: 0;
+  }
+  .next{
+    right: 0;
+  }
+  .slide > img{
+    max-width: 100vw;
+  }
+
+  /*Caption*/
+  .caption{
+    position: absolute;
+    font-size: 15px;
+    padding: 12px 12px;
+    bottom: 8px;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(transparent, var(--contrast));
+  }
+  .index{
+    position: absolute;
+    font-size: 12px;
+    padding: 8px 12px;
+    top: 0;
+  }
+  .dot{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: 8px 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .activeDot{
+    background-color: var(--contrast);
+  }
+
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
