@@ -6,7 +6,7 @@ export default function Home(props) {
   return (
 
       <div>
-        {props.menuActive && <div className="container">
+        {!(props.menuActive) && <div className="container">
           <Carrousel/>
           <div className='divider' style={{right:"0"}}></div>
             <h3>Sobre Nós</h3>
