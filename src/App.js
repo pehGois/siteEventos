@@ -21,12 +21,12 @@ export default function App(){
             <div className="menuContainer flex">
               <p className="bold">S.Teles</p>
               <div className="linkContainer flex">
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Home</Link>
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Sobre Nós</Link>
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Bares</Link>
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Equipes</Link>
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Drinks</Link>
-                <Link to="/" onClick={()=>{setActive(!isActive)}}>Contato</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Home</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Sobre Nós</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Bares</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Equipes</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Drinks</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Contato</Link>
               </div>
             </div>
           </div>
