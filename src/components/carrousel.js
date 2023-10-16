@@ -2,6 +2,8 @@ import { useState } from "react"
 import drinks from  "../img/drinks.jpg"
 function Carrousel(){
     const [index, setIndex] = useState(0)
+    const [animationDirection, setAnimationDirection] = useState("nextAnim")
+
 
     const [slideContent, setSlideContent] = useState([
         {
@@ -29,7 +31,8 @@ function Carrousel(){
     function showSlide() {
         return slideContent.map((content, key) => (
           <div className="sliderContainer" key={key}>
-            <div className={content.active ? "slide active" : "slide none"}>
+            <div className={content.active ? `slide ${animationDirection}`
+             : "slide none"}>
               <img src={content.url} alt="Imagem" />
               <div className="caption">{content.caption}</div>
             </div>
@@ -42,7 +45,8 @@ function Carrousel(){
             setSlideContent(slideContent.map((content,key) => {
                     return {...content, active: key === index + 1}
             }))
-            setIndex(index + 1);
+            setIndex(index + 1)
+            setAnimationDirection("nextAnim")
         }   
     }
 
@@ -53,6 +57,7 @@ function Carrousel(){
               return { ...content, active: key === index - 1 };
           }))
           setIndex(index - 1);
+          setAnimationDirection("prevAnim")
         }
       }
 

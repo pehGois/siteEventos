@@ -1,45 +1,43 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import './App.css';
+import Home from "./components/home"
+import Form from "./components/form"
 import logo from "./img/logo.png"
 import {useState} from 'react'
-import Carrousel from './components/carrousel';
 
-export default function App() {
+export default function App(){
   const [isActive, setActive] = useState(false)
-  return (
+  return(
     <div className="app">
+      <Router>
       <div className="navBar">
-        <div className="logoContainer flex">
-          <button onClick={()=>{setActive(!isActive)}} className="btnMenu"></button>
-          <img src={logo} alt="Logo"className="logo"/>
-          <button>Solicite um orçamento</button>
-        </div>
+          <div className="logoContainer flex">
+            <button onClick={()=>{setActive(!isActive)}} className="btnMenu"></button>
+            <img src={logo} alt="Logo" className="logo"/>
+            <Link to="/form"><button>Solicite um orçamento</button></Link>
+          </div>
 
-        <div className={isActive? "block" : "none"}>
-          <div className="menuContainer flex">
-            <p className="bold">Nome do Lugar</p>
-            <div className="linkContainer flex">
-              <a href="#">Home</a>
-              <a href="#">Sobre Nós</a>
-              <a href="#">Bares</a>
-              <a href="#">Equipes</a>
-              <a href="#">Drinks</a>
-              <a href="#">Contato</a>
+          <div className={isActive? "block" : "none"}>
+            <div className="menuContainer flex">
+              <p className="bold">S.Teles</p>
+              <div className="linkContainer flex">
+                <Link to="/">Home</Link>
+                <Link to="/">Sobre Nós</Link>
+                <Link to="/">Bares</Link>
+                <Link to="/">Equipes</Link>
+                <Link to="/">Drinks</Link>
+                <Link to="/">Contato</Link>
+              </div>
             </div>
           </div>
         </div>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/form" element={<Form/>}/>     
+          <Route path="/*" element={"404"}/>     
+        </Routes>
+      </Router>
 
-      </div>
-      <div className="container">
-        <Carrousel/>
-        <div className='divider' style={{right:"0"}}></div>
-          <h3>Sobre Nós</h3>
-        <div className='divider'></div>
-        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-
-        
-      </div>
     </div>
-  );
+  )
 }
-
-
