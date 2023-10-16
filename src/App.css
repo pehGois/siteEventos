@@ -122,6 +122,7 @@ button{
     height: 100px;
     z-index: 0 !important;
     justify-content: space-around;
+    border-bottom: 1px solid var(--contrast);
   }
   .linkContainer{
     flex-direction: row;

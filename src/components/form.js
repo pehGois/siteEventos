@@ -23,15 +23,15 @@ export default function Form() {
             <div className="flex">
                 <h1 className="title">Contate-nos</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input type="text" placeholder="Full Name..." {...register("fullName")}/>
+                    <input type="text" placeholder="Nome Completo..." {...register("fullName")}/>
                     <p>{errors.fullName?.message}</p>
                     <input type="text" placeholder="Email..." {...register("email")}/>
                     <p>{errors.email?.message}</p>
-                    <input type="number" placeholder="Age..."{...register("age")}/>
+                    <input type="number" placeholder="Idade..."{...register("age")}/>
                     <p>{errors.age?.message}</p>
-                    <input type="password" placeholder="Password..." {...register("password")}/>
+                    <input type="date" placeholder="Data de Início..." {...register("password")}/>
                     <p>{errors.password?.message}</p>
-                    <input type="password" placeholder="Confirm Password..." {...register("confPassword")}/>
+                    <input type="date" placeholder="Duração do Evento..." {...register("confPassword")}/>
                     <p>{errors.confPassword?.message}</p>
                     <input type="submit"/>
                 </form>

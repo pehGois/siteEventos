@@ -21,18 +21,18 @@ export default function App(){
             <div className="menuContainer flex">
               <p className="bold">S.Teles</p>
               <div className="linkContainer flex">
-                <Link to="/">Home</Link>
-                <Link to="/">Sobre Nós</Link>
-                <Link to="/">Bares</Link>
-                <Link to="/">Equipes</Link>
-                <Link to="/">Drinks</Link>
-                <Link to="/">Contato</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Home</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Sobre Nós</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Bares</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Equipes</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Drinks</Link>
+                <Link to="/" onClick={()=>{setActive(!isActive)}}>Contato</Link>
               </div>
             </div>
           </div>
         </div>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Home menuActive={isActive}/>}/>
           <Route path="/form" element={<Form/>}/>     
           <Route path="/*" element={"404"}/>     
         </Routes>
