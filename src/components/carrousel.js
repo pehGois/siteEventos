@@ -92,8 +92,6 @@ function Carrousel(){
             <div className="dotContainer">
                 {indexDot()}
             </div>
-
-            <div onClick={nextSlide}>Olá</div>
         </div>
     )
 }
