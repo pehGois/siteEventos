@@ -1,9 +1,9 @@
 import { useState } from "react"
 import drinks from  "../img/drinks.jpg"
+import { set } from "react-hook-form"
 function Carrousel(){
     const [index, setIndex] = useState(0)
     const [animationDirection, setAnimationDirection] = useState("nextAnim")
-
 
     const [slideContent, setSlideContent] = useState([
         {
@@ -30,26 +30,31 @@ function Carrousel(){
 
     function showSlide() {
         return slideContent.map((content, key) => (
-          <div className="sliderContainer" key={key}>
-            <div className={content.active ? `slide ${animationDirection}`
-             : "slide none"}>
-              <img src={content.url} alt="Imagem" />
-              <div className="caption">{content.caption}</div>
+            <div className="sliderContainer" key={key}>
+                <div className={content.active ? `slide ${animationDirection}`
+                : "slide none"}>
+                    <img src={content.url} alt="Imagem" />
+                </div>
             </div>
-          </div>
         ));
       }
 
     function nextSlide(){
         if (index < slideContent.length-1) {
-            setSlideContent(slideContent.map((content,key) => {
-                    return {...content, active: key === index + 1}
-            }))
             setIndex(index + 1)
+            setSlideContent(slideContent.map((content,key) => {
+                    return {...content, active: (key === (index))}
+            }))
             setAnimationDirection("nextAnim")
+            console.log(true)
+            return true
+        }
+        else {
+            setAnimationDirection("prevAnim")
+            setIndex(0)
+            return false
         }   
     }
-
     function prevSlide() {
         if (index > 0) {
           setSlideContent( 
@@ -58,7 +63,10 @@ function Carrousel(){
           }))
           setIndex(index - 1);
           setAnimationDirection("prevAnim")
+          return true
         }
+        
+        else return false
       }
 
     function indexDot(){
@@ -80,11 +88,12 @@ function Carrousel(){
             <div className="sliderContainer">
                 {showSlide()}
             </div>
-                <button className="prev" onClick={prevSlide}>Prev</button>
-                <button className="next" onClick={nextSlide}>Next</button>
-            <div>
+   
+            <div className="dotContainer">
                 {indexDot()}
             </div>
+
+            <div onClick={nextSlide}>Olá</div>
         </div>
     )
 }

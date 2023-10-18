@@ -1,19 +1,71 @@
 import '../App.css';
-
 import Carrousel from './carrousel';
+import Drinks from "../img/drinks.jpg"
+import { Link } from 'react-router-dom';
 
 export default function Home(props) {
   return (
 
       <div>
-        {!(props.menuActive) && <div className="container">
+        {!(props.menuActive) && 
+        <div className="container">
           <Carrousel/>
           <div className='divider' style={{right:"0"}}></div>
-            <h3>Sobre Nós</h3>
+            <h3 className='title'>Sobre Nós</h3>
           <div className='divider'></div>
+          <p className='text'> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+          </p>
+          
+          <div>
+          <div className='gridContainer'>
+              <div className='gridImage'><img src={Drinks} alt=''/></div>
+              <div style={{display:"grid", placeItems:"center"}}>
+                <div>
+                  <h3>Nossa Missão</h3>
+                  <p>Lorem Ipsum Dolor Sit Amet Consquanctum Adisplicing Et Dolor Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                  <Link to="/form"><button className="bold" style={{color:"#ffff", backgroundColor:"var(--background)", padding:"8px",}}>Solicite um orçamento</button></Link>
+                </div>
 
-          <p className='text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et diam nunc. Morbi aliquet et mi nec cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam sit amet euismod elit, sit amet hendrerit turpis. Curabitur elementum congue mauris, ut luctus urna imperdiet sit amet. Vestibulum commodo ex enim, at viverra libero dapibus in. Maecenas et aliquet enim. Cras efficitur felis et elit suscipit, nec euismod nisi lacinia. Suspendisse eget felis sollicitudin, bibendum orci in, lobortis lorem. Praesent faucibus eget sapien ac convallis. Quisque sed rutrum leo, in commodo lectus. Aenean viverra lectus ipsum, non pharetra tellus imperdiet sit amet. Morbi consequat eros vitae venenatis convallis. Nam ac arcu eu lectus convallis auctor.</p>
-        </div>}
+              </div>
+              </div>
+            </div>
+
+          <div className='aboutContainer flex'>
+
+            <div className='bikesContainer'>
+              <div className='bikesImg'><img src={Drinks} alt=''/></div>
+              <p>Lorem Ipsum Dolor Sit Amet Consquanctum Adisplicing Et Dolor</p>
+            </div>
+
+            <div className='dishesContainer'>
+              <img src={Drinks} alt=''/>
+            </div>
+
+            <div className='crewContainer flex'>
+              <p>Lorem Ipsum Dolor Sit Amet Consquanctum Adisplicing Et Dolor</p>
+              <div className='crewImg'>
+                <img src={Drinks} alt=''/>
+              </div>
+            </div>
+
+          </div>
+          <footer className="flex" style={{justifyContent:"space-around"}}>
+            <h3>Título</h3>
+            <div className='flex'>
+              <ul>
+                <li>Instragram</li>
+                <li>Facebook</li>
+                <li>Whatsapp</li>
+              </ul>
+              <ul>
+                <li>Email</li>
+                <li>Endereço</li>
+              </ul>
+            </div>
+          </footer>
+
+        </div>
+        }
       </div>
   );
 }

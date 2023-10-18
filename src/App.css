@@ -1,5 +1,6 @@
 :root{
   --contrast: #d3a860ff;
+  --contrastII: #f4decbff;
   --background: #121214ff;
 }
 *{
@@ -39,17 +40,19 @@ button{
   border: 1px solid var(--contrast);
   width: 50vw;
   z-index: 0;
+  margin-top: 15px;
+}
+.absolute{
+  position: absolute;
 }
 .text{
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin: 3.5rem 1rem;
 }
 .flex{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  flex: 1;
 }
 .bold{
   font-weight: bold;
@@ -61,44 +64,49 @@ button{
   display: none;
 }
 .title{
-  margin: 8px;
-
+  margin-top: 45px;
+}
+.relative{
+  position: relative;
 }
 
 /*Nav*/
-.logo{
+  .navBar{
+  border-bottom: 1px solid var(--contrast);
+}
+  .logo{
   width: 60px;
 }
-.logoContainer{
+  .logoContainer{
   height: 60px;
   justify-content: space-around;
 }
-.linkContainer{
+  .linkContainer{
   height: 70vh;
   padding: 1rem;
   flex-direction: column;
   justify-content: space-around;
 }
+  .socialMedia{
+    width: 70vw;
+    justify-content: space-around !important;
+  }
 
-/*Container*/
-.container{
-  position: relative;
-  margin: auto;
-}
-.menuContainer{
+/*Menu*/
+  .menuContainer{
   position: relative;
   left: 0;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   background-color: var(--background);
   flex-direction: column;
   z-index: 1;
   transition: transform 1s;
 }
-.btnMenu{
+  .btnMenu{
   width: 30px;
 }
-.btnMenu::after, .btnMenu::before{
+  .btnMenu::after, .btnMenu::before{
   position: absolute;
   background-color: var(--contrast);
   content: "";
@@ -106,32 +114,11 @@ button{
   height: 10px;
   border-radius: .5rem;
 }
-.btnMenu::after{
+  .btnMenu::after{
   margin-top: -16px;
 }
-.btnMenu::before{
+  .btnMenu::before{
   margin-top: 6px;
-}
-
-/*Responsivity for Desktops*/
-@media (min-width:600px) and (orientation: landscape){
-  .btnMenu{
-    display: none;
-  }
-  .menuContainer{
-    height: 100px;
-    z-index: 0 !important;
-    justify-content: space-around;
-    border-bottom: 1px solid var(--contrast);
-  }
-  .linkContainer{
-    flex-direction: row;
-    width: 600px;
-    justify-content: space-between;
-  }
-  .navBar > .none{
-    display: block;
-  }
 }
 
 /*Carrousel*/
@@ -141,23 +128,12 @@ button{
     position: relative;
     margin: auto;
     max-width: 100vw;
+    overflow: hidden;
+    max-height: 55vh;
   }
   .slide{
     position: relative;
     transition: transform 1s ease-in-out;
-  }
-  .prev, .next{
-    position: absolute;
-    top: 35%;
-    width: 90px;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    z-index: 0;
   }
   .prev{
     left: 0;
@@ -166,7 +142,8 @@ button{
     right: 0;
   }
   .slide > img{
-    max-width: 90vw;
+    position: relative;
+    transform: translateY(-20%);
   }
   .nextAnim{
     animation: next .5s ease-in-out;
@@ -176,74 +153,165 @@ button{
   }
 
   /*Caption*/
-  .caption{
-    position: absolute;
-    font-size: 15px;
-    padding: 12px 12px;
-    bottom: 8px;
-    text-align: center;
-    width: 90%;
-    background-color: var(--contrast);
-    left: 50%; /* Place the div 50% from the left edge of the container */
-    transform: translateX(-50%);
-  }
   .index{
     position: absolute;
     font-size: 12px;
     padding: 8px 12px;
     top: 0;
   }
+  .dotContainer{
+    background-color: var(--contrast);
+  }
   .dot{
+    position: relative;
     cursor: pointer;
     height: 20px;
     width: 20px;
     margin: 8px 2px;
-    background-color: #bbb;
+    background-color: #fff;
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
   }
   .activeDot{
-    background-color: var(--contrast);
+    border: 1px solid var(--background);
   }
   
-  /*Forms*/
-  .formContainer{
-    width: 100vw;
-    height: 80%;
+/*Forms*/
+.formContainer{
+  width: 100vw;
+  height: 80%;
+}
+form{
+  position: relative;
+  width: 100%;
+}
+input{
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  color: black;
+  border-radius: 8px;
+  border: none;
+}
+/*About Area*/
+  .aboutContainer{
+    border-radius: 10px;
+    margin: 0px 5px;
+    padding: 5px;
+    justify-content: space-around;
+    border: 1px solid var(--contrast);
   }
-  form{
-    position: relative;
-    width: 100%;
+  .bikesContainer,.dishesContainer, .crewContainer{
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    background-color: var(--background);
+    border-radius: 10px;
+    margin: 5px 0;
+    border: 1px solid var(--contrast);
   }
-  input{
-    width: 100%;
+  .bikesImg, .crewImg{
+    max-height: 400px;
+    overflow: hidden;
+  }
+  .crewImg{
+    align-self: flex-end;
+  }
+  .bikesImg > img{
+    transform: translate(-1%, -25%);
+  }
+  .crewImg>img{
+  transform: translateY(-25%);
+ }
+ .gridContainer{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 10px;
+  padding: 5px;
+  background-color: var(--contrast);
+  width: 90vw;
+  margin: auto;
+  border-radius: 10px;
+ }
+ .gridImage{
+  overflow: hidden;
+  border-radius: 10px;
+ }
+
+ /*Footer*/
+ footer{
+  background-color: var(--contrast);
+  height: 10vh;
+  margin-top: 45px;
+ }
+
+ /**/
+
+/*Media Query - Desktop*/
+
+@media (min-width:800px) and (orientation: landscape){
+  .btnMenu{
+    display: none;
+  }
+  .menuContainer{
+    height: 40px;
+    z-index: 0 !important;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--background);
+  }
+  .linkContainer{
+    flex-direction: row;
+    width: 600px;
+    justify-content: space-between;
+  }
+  .navBar > .none{
+    display: block;
+  }
+  .sliderContainer{
+    max-height: 500px;
+  }
+  .aboutContainer{
+    margin-top: 60px !important;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    max-width: 1500px;
+    margin: auto;
+  }
+  .bikesContainer, .crewContainer, .dishesContainer{
     max-width: 400px;
-    padding: 8px;
-    color: black;
-    border-radius: 8px;
-    border: none;
   }
-  /* Animations */
-  @keyframes prev {
-    
-    from {
-      transform: translateX(0);
-      opacity: .6;
-    }
-    to {
-      transform: translateX(100%);
-      opacity: 1;
-    }
+  .bikesContainer{
+    transform: translateY(-5%);
   }
-  @keyframes next {
-    
-    from {
-      transform: translateX(100%);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(0);
-      opacity: .6;
-    }
+  .crewContainer{
+    transform: translateY(5%);
   }
+  .text{
+    height: 110px;
+  }
+}
+
+/* Animations */
+@keyframes prev {
+  
+  from {
+    transform: translateX(0);
+    opacity: .6;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+@keyframes next {
+  
+  from {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: .6;
+  }
+}

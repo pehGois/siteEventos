@@ -19,14 +19,10 @@ export default function App(){
 
           <div className={isActive? "block" : "none"}>
             <div className="menuContainer flex">
-              <p className="bold">S.Teles</p>
               <div className="linkContainer flex">
                 <Link to="/" onClick={()=>{setActive(false)}}>Home</Link>
-                <Link to="/" onClick={()=>{setActive(false)}}>Sobre Nós</Link>
-                <Link to="/" onClick={()=>{setActive(false)}}>Bares</Link>
-                <Link to="/" onClick={()=>{setActive(false)}}>Equipes</Link>
-                <Link to="/" onClick={()=>{setActive(false)}}>Drinks</Link>
-                <Link to="/" onClick={()=>{setActive(false)}}>Contato</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Home</Link>
+                <Link to="/" onClick={()=>{setActive(false)}}>Home</Link>
               </div>
             </div>
           </div>
