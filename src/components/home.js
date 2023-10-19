@@ -32,12 +32,12 @@ export default function Home(props) {
 
           <div className='aboutContainer flex'>
 
-            <div className='bikesContainer'>
+            <div className='bikesContainer none'>
               <div className='bikesImg'><img src={Drinks} alt=''/></div>
               <p>Lorem Ipsum Dolor Sit Amet Consquanctum Adisplicing Et Dolor</p>
             </div>
 
-            <div className='dishesContainer'>
+            <div className='dishesContainer none'>
               <img src={Drinks} alt=''/>
             </div>
 
@@ -50,7 +50,7 @@ export default function Home(props) {
 
           </div>
           <footer className="flex" style={{justifyContent:"space-around"}}>
-            <h3>Título</h3>
+            <h3>Fale Conosco</h3>
             <div className='flex'>
               <ul>
                 <li>Instragram</li>
