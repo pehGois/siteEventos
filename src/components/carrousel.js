@@ -70,7 +70,7 @@ function Carrousel(){
       }
 
     function indexDot(){
-        return slideContent.map((content, key) => (
+        return slideContent.map((c, key) => (
             <span key={key} onClick={() => goTo(key)} className={index === key ? "dot activeDot" : "dot"}></span>
           ));
     }

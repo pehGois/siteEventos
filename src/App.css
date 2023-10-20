@@ -47,7 +47,11 @@ textarea{
   position: absolute;
 }
 .text{
-  margin: 3.5rem 1rem;
+  margin: 4rem auto;
+  max-width: 800px;
+  line-height: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .flex{
   display: flex;
@@ -259,7 +263,7 @@ input{
     border: 1px solid var(--contrast);
   }
   .bikesImg, .crewImg{
-    max-height: 400px;
+    max-height: 550px;
     overflow: hidden;
   }
   .crewImg{
