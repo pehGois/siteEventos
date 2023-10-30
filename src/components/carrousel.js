@@ -1,98 +1,38 @@
-import { useState } from "react"
-import drinks from  "../img/drinks.jpg"
-import { set } from "react-hook-form"
-function Carrousel(){
-    const [index, setIndex] = useState(0)
-    const [animationDirection, setAnimationDirection] = useState("nextAnim")
+import "../App.css"
+import React, { useState } from 'react';
 
-    const [slideContent, setSlideContent] = useState([
-        {
-            url: drinks,
-            caption: "Imagem 1",
-            active: true
-        },
-        {
-            url: drinks,
-            caption: "Imagem 2",
-            active: false
-        },
-        {
-            url: drinks,
-            caption: "Imagem 3",
-            active: false
-        },
-        {
-            url: drinks,
-            caption: "Imagem 4",
-            active: false
-        }
-    ])
 
-    function showSlide() {
-        return slideContent.map((content, key) => (
-            <div className="sliderContainer" key={key}>
-                <div className={content.active ? `slide ${animationDirection}`
-                : "slide none"}>
-                    <img src={content.url} alt="Imagem" />
-                </div>
-            </div>
-        ));
-      }
+export default function Carousel({ images }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    function nextSlide(){
-        if (index < slideContent.length-1) {
-            setIndex(index + 1)
-            setSlideContent(slideContent.map((content,key) => {
-                    return {...content, active: (key === (index))}
-            }))
-            setAnimationDirection("nextAnim")
-            console.log(true)
-            return true
-        }
-        else {
-            setAnimationDirection("prevAnim")
-            setIndex(0)
-            return false
-        }   
-    }
-    function prevSlide() {
-        if (index > 0) {
-          setSlideContent( 
-            slideContent.map((content, key) => {
-              return { ...content, active: key === index - 1 };
-          }))
-          setIndex(index - 1);
-          setAnimationDirection("prevAnim")
-          return true
-        }
+  const nextImage = () => {
+    setCurrentIndex((currentIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="carousel-container">
         
-        else return false
-      }
+        <button className="button-arrow carousel-button absolute" onClick={nextImage}>
+            <span className="material-symbols-outlined">
+                arrow_back_ios
+            </span>
+        </button>
 
-    function indexDot(){
-        return slideContent.map((c, key) => (
-            <span key={key} onClick={() => goTo(key)} className={index === key ? "dot activeDot" : "dot"}></span>
-          ));
-    }
+        <img src={images[currentIndex].url} alt="Carousel" className="carousel-image" />
 
-    function goTo(position){
-        setSlideContent(
-            slideContent.map((content,key)=>{
-                return {...content, active: key === position}
-        }))
-        setIndex(position)
-    }
-      
-    return (
-        <div style={{position:"relative"}}>
-            <div className="sliderContainer">
-                {showSlide()}
-            </div>
-   
-            <div className="dotContainer">
-                {indexDot()}
-            </div>
-        </div>
-    )
-}
-export default Carrousel
+        <button className="button-arrow carousel-button absolute right">
+            <span onClick={prevImage}className="material-symbols-outlined">
+            arrow_forward_ios
+            </span>
+        </button>
+
+    </div>
+  );
+};
+
+
+
