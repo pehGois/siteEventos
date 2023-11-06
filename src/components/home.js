@@ -71,8 +71,8 @@ export default function Home(props) {
 
             <div className='grid bottom-card-grid border radius '>
               <div className='flex flex-align'>
-                <h3>Nosso Serviço</h3>
-                <p className='side-image-text'>Na S.Teles, primamos pela alta qualidade em nossos serviços. Oferecemos uma seleção de bifes e bebidas que são verdadeiras delícias para todos os gostos. Nossos pratos são preparados com cuidado e nossas bebidas são escolhidas com esmero para garantir uma experiência gastronômica excepcional em nossas festas.</p>
+                <h3>Nossa Equipe</h3>
+                <p className='side-image-text'>A equipe da S.Teles é apaixonada e altamente qualificada, oferecendo atendimento impecável em eventos. Nossos artesãos criam bicicletas customizadas à mão, adicionando originalidade e sofisticação às festas que organizamos, tornando-as únicas e inesquecíveis.</p>
               </div>
               <div className='hidden radius'><img src={teste} alt=''/></div>
             </div>
