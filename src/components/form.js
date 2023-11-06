@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useState } from "react";
+import emailjs from '@emailjs/browser'
 
 export default function Form() {
     const [birth, setBirth] = useState(false);
@@ -25,7 +26,8 @@ export default function Form() {
         city: yup.string().required("Este é um campo obrigatório"),
         addres: yup.string().required("Este é um campo obrigatório"),
         birthdayPersonAge: yup.number().integer().positive(),
-        obs: yup.string()
+        obs: yup.string(),
+        eventType: yup.string().default("")
     });
 
     const validateForm = (data) => {
@@ -39,11 +41,45 @@ export default function Form() {
         resolver: yupResolver(schema)
     });
 
+    function submitCheckBox(data){
+        console.log("OI")
+        if (data.wedding) {
+            data.eventType += " Casamento"
+        }
+        if (data.debutant) {
+            data.eventType += " Debutante"
+        }
+        if (data.corporate) {
+            data.eventType += " Corporativo"
+        }
+        if (data.birthday){
+            data.eventType += " Aniversário"
+        }
+    }
+
     const onSubmit = (data) => {
         validateForm(data)
         if (checked) {
-            window.alert("Formulário Enviado com Sucesso!")
-            console.log(data)
+            submitCheckBox(data)
+            
+            const template = {
+                fullName: data.fullName,
+                email: data.email,
+                phone: data.phone,
+                eventDate: data.eventDate,
+                eventType: data.eventType,
+                numParticipants: data.numParticipants,
+                state: data.state,
+                city: data.city,
+                addres: data.addres,
+                obs: data.obs,
+                birthdayPersonAge: data.birthdayPersonAge
+            }
+
+            emailjs.send("service_j5fy3ds","template_01q7psd",template,"xaS14vQwPVUbOU27T")
+            .then((response) =>{
+                window.alert("Formulário Enviado com Sucesso!", response.status, response.text)
+            }, (err)=>{console.log("Erro: ", err)})
         }
     };
 
