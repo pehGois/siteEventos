@@ -1,9 +1,10 @@
 import "../App.css"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 export default function Carousel({ images }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
+  console.log(images)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
     setCurrentIndex((currentIndex + 1) % images.length);
@@ -13,6 +14,15 @@ export default function Carousel({ images }) {
     setCurrentIndex((currentIndex - 1 + images.length) % images.length);
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextImage();
+    }, 10000);
+
+    // Limpar o intervalo quando o componente for desmontado
+    return () => clearInterval(intervalId);
+  }, [currentIndex, images]);
+
   return (
     <div className="carousel-container">
         
@@ -21,8 +31,8 @@ export default function Carousel({ images }) {
                 arrow_back_ios
             </span>
         </button>
+        <img src={images && images[currentIndex]?.url} alt="Carousel" className="carousel-image" />
 
-        <img src={images[currentIndex].url} alt="Carousel" className="carousel-image" />
 
         <button className="button-arrow carousel-button absolute right">
             <span onClick={prevImage}className="material-symbols-outlined">

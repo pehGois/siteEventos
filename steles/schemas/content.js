@@ -20,8 +20,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
+      name: 'imagem',
+      title: 'Imagem',
       type: 'reference',
       to: [{type: 'imagem'}],
     }),

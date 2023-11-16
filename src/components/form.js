@@ -167,7 +167,7 @@ export default function Form() {
                 {errors.contactType &&<p className="error">{errors.contactType?.message}</p>}
                 <textarea placeholder="Obeservações..." {...register("obs")}></textarea>
 
-                <input type="submit" value="Enviar"/>
+                <input type="submit" reset value="Enviar"/>
             </form>
         </div>
     </div>

@@ -3,10 +3,14 @@ import './App.css';
 import Home from "./components/home"
 import Form from "./components/form"
 import {useState} from 'react'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App(){
   const [isActive, setActive] = useState(false)
+  const client = new QueryClient();
+
   return(
+    <QueryClientProvider client={client}>
     <div className="app relative">
       <div style={{maxWidth:"1500px", margin:"auto"}}>
         <Router>
@@ -32,5 +36,6 @@ export default function App(){
         </Router>
       </div>
     </div>
+    </QueryClientProvider>
   )
 }

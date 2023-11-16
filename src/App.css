@@ -231,12 +231,23 @@ position: absolute;
     text-align: justify;
     padding: 10px;
   }
+  .side-image-button{
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 0 10px;
+  }
+  button:hover{
+    background-color: var(--background);
+    color: white;
+    text-decoration: underline;
+    transition: 1s;
+  }
   .top-card-grid, .bottom-card-grid{
     margin: 15px;
     max-height: 90vh;
   }
   .top-card-grid{
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
   }
   .bottom-card-grid{
     grid-template-rows: 1fr 3fr;
@@ -328,29 +339,27 @@ form{
     grid-template-columns: 1fr 1fr 1fr;
   }
   .side-image-grid{
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 6fr 1fr;
     background-color: var(--contrast);
     margin-bottom: 50px;
   }
   .top-card-grid {
     display: grid!important;
-    position: relative;
-    top: -50px;
   }
   .bottom-card-grid {
     display: grid !important;
-    position: relative;
-    top: 50px;
   }
   .carousel-container, .carousel-image{
     max-height: 720px;
+    border-radius: 10px;
   }
   .carousel-about-img > .carousel-container > .carousel-image{
     max-width: unset !important;
     min-height: 100% -50%!important;
   }
   .carousel-about-img{
-    background-color: var(--contrast);
+    background-color: var(--background);
+    border: 1px solid var(--contrast);
   }
   
   /*Form*/
