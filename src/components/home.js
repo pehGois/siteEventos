@@ -22,7 +22,7 @@ export default function Home(props) {
       return images
     }
     else {
-      console.log('Nenhuma galeria encontrada.', galleryQuery.status);
+      console.log('Nenhuma galeria encontrada. Status: ', galleryQuery.status,' ',galleryQuery.status.message);
     }
   }
 
@@ -31,7 +31,7 @@ export default function Home(props) {
         return contentQuery.data[index]?.body?.children?.text
       }
       else {
-        console.log('Nenhum resultado encontrado.');
+        console.log('Nenhum resultado encontrado. Status: ', contentQuery.status,' ', contentQuery.status.message);
       }
   }
 
@@ -40,7 +40,7 @@ export default function Home(props) {
       return contentQuery.data[index]?.image?.image?.asset?.url
     }
     else {
-      console.log('Nenhuma imagem encontrada.');
+      console.log('Nenhuma imagem encontrada. Status: ', contentQuery.status,' ', contentQuery.status.message);
     }
   }
   {formatGalleryObj(0)}
@@ -108,13 +108,13 @@ export default function Home(props) {
             <h3>Fale Conosco</h3>
             <div className='flex'>
               <ul>
-                <li>Instragram</li>
-                <li>Facebook</li>
-                <li>Whatsapp</li>
+                <li><a>Instragram</a></li>
+                <li><a>Whatsapp</a></li>
               </ul>
               <ul>
-                <li>Email</li>
-                <li>Endereço</li>
+                <Link to="/form">
+                  <li>Email</li>
+                </Link>
               </ul>
             </div>
           </footer>
