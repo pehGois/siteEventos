@@ -48,7 +48,7 @@ export default function Home(props) {
       <main>
         {!(props.menuActive) && 
         <div>
-          <Carrousel images={formatGalleryObj(0)}/>
+          <Carrousel images={formatGalleryObj(1)}/>
           <article className='mainContainer grid'>
             <div style={{width:"", margin:"auto"}}>
               <div className='relative flex flex-align'>
